@@ -1,18 +1,22 @@
 export default function createIteratorObject(report) {
-  let allEmployees = report.allEmployees;
-  let flattenedEmployees = [];
-  
-  for (let dept in allEmployees) {
-    flattenedEmployees.push(...allEmployees[dept]);
+  let employees = [];
+
+  for (let dept in report.allEmployees) {
+    employees = [...employees, ...report.allEmployees[dept]];
   }
-  
-  let currentIndex = 0;
-  
-  return {
+
+  let count = 0;
+  const max = employees.length;
+
+  const iterator = {
     next: function() {
-      return currentIndex < flattenedEmployees.length ?
-        { value: flattenedEmployees[currentIndex++], done: false } :
-        { done: true };
+      if (count < max) {
+        return { value: employees[count++], done: false };
+      } else {
+        return { value: undefined, done: true };
+      }
     }
   };
+
+  return iterator;
 }
