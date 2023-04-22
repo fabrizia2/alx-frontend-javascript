@@ -1,23 +1,15 @@
 export class HolbertonClass {
-  constructor(size, location) {
-    this._size = size;
+  constructor(year, location) {
+    this._year = year;
     this._location = location;
   }
 
-  get size() {
-    return this._size;
+  get year() {
+    return this._year;
   }
 
   get location() {
     return this._location;
-  }
-
-  toString() {
-    return `${this._location} - ${this._size}`;
-  }
-
-  valueOf() {
-    return this._size;
   }
 }
 
@@ -37,7 +29,7 @@ export class StudentHolberton {
   }
 
   get fullStudentDescription() {
-    return `${this._firstName} ${this._lastName} - ${this._holbertonClass.size} - ${this._holbertonClass.location}`;
+    return `${this._firstName} ${this._lastName} - ${this._holbertonClass.year} - ${this._holbertonClass.location}`;
   }
 }
 
