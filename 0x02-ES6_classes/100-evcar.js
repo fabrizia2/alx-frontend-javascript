@@ -1,4 +1,4 @@
-// 10-car.js
+import Car from './10-car';
 
 export class Car {
   constructor(brand, motor, color) {
