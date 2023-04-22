@@ -1,27 +1,28 @@
-import Car from './10-car';
+const carBrand = Symbol('brand');
+const carMotor = Symbol('motor');
+const carColor = Symbol('color');
 
-export class Car {
+export default class Car {
   constructor(brand, motor, color) {
-    this._brand = brand;
-    this._motor = motor;
-    this._color = color;
-  }
-
-  get brand() {
-    return this._brand;
-  }
-
-  get motor() {
-    return this._motor;
-  }
-
-  get color() {
-    return this._color;
+    this[carBrand] = brand;
+    this[carMotor] = motor;
+    this[carColor] = color;
   }
 
   cloneCar() {
-    const clone = Object.assign(Object.create(Object.getPrototypeOf(this)), this);
-    return clone;
+    return new Car(this[carBrand], this[carMotor], this[carColor]);
+  }
+
+  get brand() {
+    return this[carBrand];
+  }
+
+  get motor() {
+    return this[carMotor];
+  }
+
+  get color() {
+    return this[carColor];
   }
 }
 
@@ -31,13 +32,11 @@ export class EVCar extends Car {
     this._range = range;
   }
 
-  get range() {
-    return this._range;
+  cloneCar() {
+    return new Car(this[carBrand], this[carMotor], this[carColor]);
   }
 
-  cloneCar() {
-    const clone = super.cloneCar();
-    Object.setPrototypeOf(clone, Car.prototype);
-    return clone;
+  get range() {
+    return this._range;
   }
 }
