@@ -1,10 +1,10 @@
 export default function getNeighborhoodsList() {
-  const sanFranciscoNeighborhoods = ['SOMA', 'Union Square'];   
+  // This function is intended to be used as a method of a class, 
+  // where `this` refers to the instance of the class.
+  this.sanFranciscoNeighborhoods = ['SOMA', 'Union Square'];   
 
-  const addNeighborhood = (newNeighborhood) => {
-    sanFranciscoNeighborhoods.push(newNeighborhood);        
-    return sanFranciscoNeighborhoods;
+  this.addNeighborhood = (newNeighborhood) => {
+    this.sanFranciscoNeighborhoods.push(newNeighborhood);        
+    return this.sanFranciscoNeighborhoods;
   };
-  
-  return { sanFranciscoNeighborhoods, addNeighborhood };
 }
