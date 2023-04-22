@@ -1,7 +1,7 @@
 class HolbertonClass {
   constructor(size, location) {
-    this._size = typeof size === 'number' ? size : 0;
-    this._location = typeof location === 'string' ? location : '';
+    this._size = size;
+    this._location = location;
   }
 
   get size() {
@@ -9,7 +9,7 @@ class HolbertonClass {
   }
 
   set size(value) {
-    this._size = typeof value === 'number' ? value : 0;
+    this._size = value;
   }
 
   get location() {
@@ -17,7 +17,7 @@ class HolbertonClass {
   }
 
   set location(value) {
-    this._location = typeof value === 'string' ? value : '';
+    this._location = value;
   }
 
   valueOf() {
