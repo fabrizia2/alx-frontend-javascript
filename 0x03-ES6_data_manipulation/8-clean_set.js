@@ -1,4 +1,4 @@
-function cleanSet(set, startString) {
+export default function cleanSet(set, startString) {
   let values = [];
   for (const val of set) {
     if (val.startsWith(startString)) {
